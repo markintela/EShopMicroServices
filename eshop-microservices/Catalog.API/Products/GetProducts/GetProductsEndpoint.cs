@@ -16,7 +16,7 @@ namespace Catalog.API.Products.GetProducts
                     
                 return Results.Ok(result);
             }).WithName("GetProducts")
-            .Produces<GetProductsResponse>(StatusCodes.Status201Created)
+            .Produces<GetProductsResponse>(StatusCodes.Status200OK)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithSummary("Get Products")
             .WithDescription("Get Products"); 

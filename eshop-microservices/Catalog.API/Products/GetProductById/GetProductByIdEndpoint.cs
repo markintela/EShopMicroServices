@@ -13,10 +13,14 @@ namespace Catalog.API.Products.GetProductById
             {
                 var result = await sender.Send(new GetProductByIdQuery(id));
 
+                // adapt is not working
+                //var product = result.Adapt<GetProductsByIdResponse>();
+               
+
                 return  Results.Ok(result);  
 
             }).WithName("Get Product by Id")
-            .Produces<GetProductsByIdResponse>(StatusCodes.Status201Created)
+            .Produces<GetProductsByIdResponse>(StatusCodes.Status200OK)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithSummary("Get Product by Id")
             .WithDescription("Get Product by Id");
